@@ -1,6 +1,6 @@
 'use strict';
 const { Model } = require('sequelize');
-const question = require('./question');
+
 module.exports = (sequelize, DataTypes) => {
   class Theme extends Model {
     /**
@@ -8,12 +8,18 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(Question) {
-      this.hasMany(Question, { foreignKey: 'theme_id' })
+    static associate({ Question }) {
+      this.hasMany(Question, { foreignKey: 'theme_id' });
     }
   }
   Theme.init(
     {
+      id: {
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: DataTypes.INTEGER,
+      },
       theme: {
         allowNull: false,
         type: DataTypes.TEXT,

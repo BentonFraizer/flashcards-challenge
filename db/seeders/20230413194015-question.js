@@ -144,7 +144,7 @@ module.exports = {
       {
         theme_id: 4,
         questions: 'Чаще всего ухажёры делают на это ставку. На что?',
-        answers: 'комплименты',
+        answers: 'Комплименты',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
@@ -166,14 +166,14 @@ module.exports = {
         theme_id: 4,
         questions:
           'Какое слово всегда пишется неправильно?',
-        answers: 'неправильно',
+        answers: 'Неправильно',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         theme_id: 4,
         questions: 'Вы увидите это даже с закрытыми глазами. Что?',
-        answers: 'сон',
+        answers: 'Сон',
         createdAt: new Date(),
         updatedAt: new Date(),
       },

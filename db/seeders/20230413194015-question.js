@@ -58,7 +58,7 @@ module.exports = {
       {
         theme_id: 2,
         questions: 'Где находится Аравийская пустыня?',
-        answers: 'В Африке',
+        answers: 'В Африке.',
         createdAt: new Date(),
         updatedAt: new Date(),
       },

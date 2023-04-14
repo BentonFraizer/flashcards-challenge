@@ -9,6 +9,8 @@ const ReactDOMServer = require('react-dom/server');
 const Main = require('./components/Main');
 const Login = require('./components/Login');
 const { Theme } = require('./db/models');
+const { Question } = require('./db/models');
+const QuestionPage = require('./components/QuestionPage');
 
 // создаём сервер
 const app = express();
@@ -27,6 +29,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', async (req, res) => {
   const cards = await Theme.findAll();
   const element = React.createElement(Main, { cards });
+  const html = ReactDOMServer.renderToStaticMarkup(element);
+  res.send(`<!DOCTYPE html>${html}`);
+});
+
+app.get('/question', async (req, res) => {
+  const cards = await Theme.findAll();
+  const card = await Question.findAll();
+  const element = React.createElement(QuestionPage, { card, cards });
   const html = ReactDOMServer.renderToStaticMarkup(element);
   res.send(`<!DOCTYPE html>${html}`);
 });

@@ -5,9 +5,9 @@ module.exports = function Main({ cards }) {
   return (
     <Layout>
       <ul className="cards-list">
-        {cards.map((card, index) => (
-          <li className="card-item" key={index}>
-            <div className="card-title">{card.title}</div>
+        {cards.map((card) => (
+          <li className="card-item" key={card.id}>
+            <div className="card-title">{card.theme}</div>
           </li>
         ))}
       </ul>

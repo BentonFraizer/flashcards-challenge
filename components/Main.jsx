@@ -7,7 +7,7 @@ module.exports = function Main({ cards }) {
       <ul className="cards-list">
         {cards.map((card, index) => (
           <li className="card-item" key={index}>
-            <div className="card-title">{card.title}</div>
+            <div className="card-title">{card.theme}</div>
           </li>
         ))}
       </ul>

@@ -8,6 +8,7 @@ const ReactDOMServer = require('react-dom/server');
 
 const Main = require('./components/Main');
 const Login = require('./components/Login');
+const { Theme } = require('./db/models');
 
 // создаём сервер
 const app = express();
@@ -23,59 +24,8 @@ app.use(express.urlencoded({ extended: false }));
 // показываем откуда отдавать статику
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-  const cards = [
-    {
-      title: 'Первая карточка в которой длинная тема или даже очень длинная ntvf ,asd asd asd asd asd gk sad asd asdasd asdkg sfd',
-      qwestion: 'Вопрос 1 первой карточки',
-      answer: 'Ответ 1 первой карточки',
-    },
-    {
-      title: 'Вторая карточка',
-      qwestion: 'Вопрос 1 второй карточки',
-      answer: 'Ответ 1 второй карточки',
-    },
-    {
-      title: 'Третья карточка',
-      qwestion: 'Вопрос 1 третьей карточки',
-      answer: 'Ответ 1 третьей карточки',
-    },
-    {
-      title: 'Третья карточка',
-      qwestion: 'Вопрос 1 третьей карточки',
-      answer: 'Ответ 1 третьей карточки',
-    },
-    {
-      title: 'Вторая карточка',
-      qwestion: 'Вопрос 1 второй карточки',
-      answer: 'Ответ 1 второй карточки',
-    },
-    {
-      title: 'Третья карточка',
-      qwestion: 'Вопрос 1 третьей карточки',
-      answer: 'Ответ 1 третьей карточки',
-    },
-    {
-      title: 'Третья карточка',
-      qwestion: 'Вопрос 1 третьей карточки',
-      answer: 'Ответ 1 третьей карточки',
-    },
-    {
-      title: 'Вторая карточка',
-      qwestion: 'Вопрос 1 второй карточки',
-      answer: 'Ответ 1 второй карточки',
-    },
-    {
-      title: 'Третья карточка',
-      qwestion: 'Вопрос 1 третьей карточки',
-      answer: 'Ответ 1 третьей карточки',
-    },
-    {
-      title: 'Третья карточка',
-      qwestion: 'Вопрос 1 третьей карточки',
-      answer: 'Ответ 1 третьей карточки',
-    },
-  ];
+app.get('/', async (req, res) => {
+  const cards = await Theme.findAll();
   const element = React.createElement(Main, { cards });
   const html = ReactDOMServer.renderToStaticMarkup(element);
   res.send(`<!DOCTYPE html>${html}`);

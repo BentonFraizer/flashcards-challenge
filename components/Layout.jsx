@@ -15,7 +15,7 @@ module.exports = function Layout({ children }) {
         <body>
           <header className="header">
             <div className="logo">
-              <img src="./images/leopards-logo.jpg" alt="leopards" />
+              <img src="/images/leopards-logo.jpg" alt="leopards" />
             </div>
             <h1 className="header-title">Simplesons</h1>
             <ul className="nav">

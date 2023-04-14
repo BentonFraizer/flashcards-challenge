@@ -5,6 +5,7 @@ module.exports = function Main({ themes }) {
   return (
     <Layout>
       <ul className="cards-list">
+
         {themes.map((theme) => (
           <li className="card-item" key={theme.id}>
             <a href={`/question/${theme.id}/1`} className="card-link">

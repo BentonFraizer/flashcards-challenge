@@ -14,12 +14,12 @@ module.exports = function RegistrationPage() {
           <form className="form-registration">
             <div className="form-floating">
               <label htmlFor="floatingInput">
-                <input type="email" className="form-control" id="floatingInput" placeholder="Имя или nickname" autoComplete="off" />
+                <input name="login" type="text" className="form-control" id="floatingInput" placeholder="Имя или nickname" autoComplete="off" />
               </label>
             </div>
             <div className="form-floating">
               <label htmlFor="floatingPassword">
-                <input type="password" className="form-control" id="floatingPassword" placeholder="Пароль (желательно посложнее Qwerty)" autoComplete="off" />
+                <input name="password" type="password" className="form-control" id="floatingPassword" placeholder="Пароль (желательно посложнее Qwerty)" autoComplete="off" />
               </label>
             </div>
             <button className="btn-registration" type="submit">

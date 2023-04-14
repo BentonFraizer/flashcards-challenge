@@ -1,6 +1,7 @@
 const React = require('react');
 const Layout = require('./Layout');
 
+
 module.exports = function QuestionPage({ oneTheme, oneQuestion, questionIndex }) {
   const answer = oneQuestion.answers;
   console.log('answer', answer);

@@ -39,6 +39,7 @@ module.exports = function Layout({ children }) {
           <main>{children}</main>
         </body>
       </div>
+      <script defer src="/js/application.js"></script>
     </html>
   );
 };

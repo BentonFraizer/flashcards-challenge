@@ -19,7 +19,7 @@ module.exports = function Login() {
             </div>
             <div className="form-floating mb-3">
               <label htmlFor="floatingPassword">
-                <input type="password" className="form-control" id="floatingPassword" placeholder="Пароль (посложнее Qwerty)" autoComplete="off" />
+                <input type="password" className="form-control" id="floatingPassword" placeholder="Пароль" autoComplete="off" />
               </label>
             </div>
             <button className="btn-login" type="submit">

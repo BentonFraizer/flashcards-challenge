@@ -6,8 +6,9 @@ const logger = require('morgan');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
-const Main = require('./components/Main');
-const Login = require('./components/Login');
+const MainPage = require('./components/MainPage');
+const LoginPage = require('./components/LoginPage');
+const RegistrationPage = require('./components/RegistrationPage');
 
 // создаём сервер
 const app = express();
@@ -76,19 +77,25 @@ app.get('/', (req, res) => {
       answer: 'Ответ 1 третьей карточки',
     },
   ];
-  const element = React.createElement(Main, { cards });
+  const element = React.createElement(MainPage, { cards });
   const html = ReactDOMServer.renderToStaticMarkup(element);
   res.send(`<!DOCTYPE html>${html}`);
 });
 
 app.get('/login', (req, res) => {
-  const element = React.createElement(Login);
+  const element = React.createElement(LoginPage);
   const html = ReactDOMServer.renderToStaticMarkup(element);
   res.send(`<!DOCTYPE html>${html}`);
 });
 
 app.post('/login', (req, res) => {
   console.log('reqqqq', req.body);
+});
+
+app.get('/registration', (req, res) => {
+  const element = React.createElement(RegistrationPage);
+  const html = ReactDOMServer.renderToStaticMarkup(element);
+  res.send(`<!DOCTYPE html>${html}`);
 });
 
 app.listen(3000, () => {

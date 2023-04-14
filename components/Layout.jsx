@@ -9,7 +9,7 @@ module.exports = function Layout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="/css/normalize.css" />
         <link rel="stylesheet" href="/css/application.css" />
-        <title>Flashcards</title>
+        <title>Simplesons</title>
       </head>
       <div className="container">
         <body>
@@ -20,17 +20,17 @@ module.exports = function Layout({ children }) {
             <h1 className="header-title">Simplesons</h1>
             <ul className="nav">
               <li className="nav-item">
-                <a href="/" className="nav-link">
+                <a href="/registration" className="nav-link">
                   Регистрация
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link">
+                <a href="/login" className="nav-link">
                   Вход
                 </a>
               </li>
               <li className="nav-item">
-                <a href="/" className="nav-link active">
+                <a href="/" className="nav-link">
                   Главная
                 </a>
               </li>

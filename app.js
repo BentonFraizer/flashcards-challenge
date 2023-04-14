@@ -6,8 +6,9 @@ const logger = require('morgan');
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
-const Main = require('./components/Main');
-const Login = require('./components/Login');
+const MainPage = require('./components/MainPage');
+const LoginPage = require('./components/LoginPage');
+const RegistrationPage = require('./components/RegistrationPage');
 const { Theme } = require('./db/models');
 const { Question } = require('./db/models');
 const QuestionPage = require('./components/QuestionPage');
@@ -28,7 +29,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', async (req, res) => {
   const cards = await Theme.findAll();
-  const element = React.createElement(Main, { cards });
+  const element = React.createElement(MainPage, { cards });
   const html = ReactDOMServer.renderToStaticMarkup(element);
   res.send(`<!DOCTYPE html>${html}`);
 });
@@ -42,13 +43,19 @@ app.get('/question', async (req, res) => {
 });
 
 app.get('/login', (req, res) => {
-  const element = React.createElement(Login);
+  const element = React.createElement(LoginPage);
   const html = ReactDOMServer.renderToStaticMarkup(element);
   res.send(`<!DOCTYPE html>${html}`);
 });
 
 app.post('/login', (req, res) => {
   console.log('reqqqq', req.body);
+});
+
+app.get('/registration', (req, res) => {
+  const element = React.createElement(RegistrationPage);
+  const html = ReactDOMServer.renderToStaticMarkup(element);
+  res.send(`<!DOCTYPE html>${html}`);
 });
 
 app.listen(3000, () => {

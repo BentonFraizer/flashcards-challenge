@@ -7,6 +7,7 @@ const React = require('react');
 const ReactDOMServer = require('react-dom/server');
 
 const Main = require('./components/Main');
+const Login = require('./components/Login');
 
 // создаём сервер
 const app = express();
@@ -78,6 +79,16 @@ app.get('/', (req, res) => {
   const element = React.createElement(Main, { cards });
   const html = ReactDOMServer.renderToStaticMarkup(element);
   res.send(`<!DOCTYPE html>${html}`);
+});
+
+app.get('/login', (req, res) => {
+  const element = React.createElement(Login);
+  const html = ReactDOMServer.renderToStaticMarkup(element);
+  res.send(`<!DOCTYPE html>${html}`);
+});
+
+app.post('/login', (req, res) => {
+  console.log('reqqqq', req.body);
 });
 
 app.listen(3000, () => {

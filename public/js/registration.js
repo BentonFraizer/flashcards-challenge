@@ -18,6 +18,6 @@ form?.addEventListener('submit', async (event) => {
     body: JSON.stringify({ login, password }),
   });
 
-  const data = await response.json()
+  const data = await response.json();
   console.log(data);
 });

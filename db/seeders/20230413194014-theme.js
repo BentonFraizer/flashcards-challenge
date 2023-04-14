@@ -8,6 +8,8 @@ module.exports = {
       { theme: 'География' },
       { theme: 'Кино' },
       { theme: 'Логика' },
+      { theme: 'Душный юмор' },
+      { theme: 'IT' },
     ]);
   },
 

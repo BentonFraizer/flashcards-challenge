@@ -12,6 +12,7 @@ const RegistrationPage = require('./components/RegistrationPage');
 const { Theme } = require('./db/models');
 const { Question } = require('./db/models');
 const QuestionPage = require('./components/QuestionPage');
+const { User } = require('./db/models');
 
 // создаём сервер
 const app = express();
@@ -48,14 +49,32 @@ app.get('/login', (req, res) => {
   res.send(`<!DOCTYPE html>${html}`);
 });
 
-app.post('/login', (req, res) => {
+app.post('/login', async (req, res) => {
   console.log('reqqqq', req.body);
+  try {
+    const { login, password } = req.body;
+    const user = await User.findOne({ where: { name: login } });
+    return res.json(user);
+  } catch (error) {
+    return console.log(error.messege);
+  }
 });
 
 app.get('/registration', (req, res) => {
   const element = React.createElement(RegistrationPage);
   const html = ReactDOMServer.renderToStaticMarkup(element);
   res.send(`<!DOCTYPE html>${html}`);
+});
+
+app.post('/registration', async (req, res) => {
+  try {
+    const { login, password } = req.body;
+    console.log(req.body);
+    const user = await User.create({ name: login, password });
+    console.log(user);
+  } catch (error) {
+    console.log(error.messege);
+  }
 });
 
 app.listen(3000, () => {
